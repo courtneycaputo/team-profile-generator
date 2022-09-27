@@ -22,17 +22,111 @@ const teamMembers = []
     // create const = new Manager
     // push to teamMembers
 
-// create menu   
+// create menu
+const menu = () => {
     inquirer.prompt([
         {
-            type: 'confirm',
+            type: 'list',
             name: 'menu',
-            message:'Do you want to add another team member?',
-            default: 'true',    
+            message:'Select what you would like to do next:',
+            choices: [
+                "Add intern to team",
+                "Add engineer to team",
+                "Generate team profile"
+            ]    
         }
-    ])
+    ]).then((userChoice) => {
+        // console.log(userChoice);
+        if(userChoice.menu === "Add intern to team") {
+            inquirer.prompt ([
+                // Intern Name
+                {
+                    type: 'input',
+                    name: 'internName',
+                    message: 'Enter intern name:',
+                },
+
+                // Intern ID
+                {
+                    type: 'input',
+                    name: 'internID',
+                    message: 'Enter intern employee ID:',
+                },
+                // Intern Email
+                {
+                    type: 'input',
+                    name: 'internEmail',
+                    message: 'Enter intern email:',
+                },
+                // Intern School
+                {
+                    type: 'input',
+                    name: 'internSchool',
+                    message: 'Enter intern school',
+                }
+
+            ]).then((answers) => {
+                const intern = new Intern(
+                    answers.internName,
+                    answers.internID,
+                    answers.internEmail,
+                    answers.internSchool
+                )
+                // console.log(answers);
+                teamMembers.push(intern);
+                menu()
+            })
+        } else if(userChoice.menu === "Add engineer to team") {
+            inquirer.prompt ([
+                // Engineer name
+                {
+                    type: 'input',
+                    name:'engineerName',
+                    message: 'Enter engineer name:',
+                },
+                // Engineer ID
+                {
+                    type: 'input',
+                    name: 'engineerID',
+                    message: 'Enter engineer employee ID:',
+                },
+                // Engineer Email
+                {
+                    type: 'input',
+                    name: 'engineerEmail',
+                    message: 'Enter engineer email:',
+                },
+                // Engineer Github
+                {
+                    type: 'input',
+                    name: 'engineerGithub',
+                    message: 'Enter engineer github:',
+                }
+            ]).then((answers) => {
+                const engineer = new Engineer (
+                    answers.engineerName,
+                    answers.engineerID,
+                    answers.engineerEmail,
+                    answers.engineerGithub
+                )
+                // console.log(answers);
+                teamMembers.push(engineer);
+                menu()
+            })
+        } else {
+            generateTeam();
+        }
+    })
+}
+
+    const generateTeam = () => {
+
+    }
+
+menu ()
+
     // if yes, go to addteam function
-    // if no, go to generate profile function
+    // if no, go to generateTeam function
 
 // addteam function
     // menu with option to add engineer or intern
