@@ -12,88 +12,49 @@ console.log(distDir)
 const distPath = path.join(distDir,"teamprofile.html")
 console.log(distPath)
 
+console.log("Welcome to team profile generator! Answer the following prompts to build your team profile.")
 
 
-function appMenu(){
-    console.log("Answer the following prompts to build your team profile.")
+const teamMembers = []
 
+// function for team manager's information
+    // name, employee ID, email address, and office number
+    // create const = new Manager
+    // push to teamMembers
+
+// create menu   
     inquirer.prompt([
-        // Enter Employee Name
         {
-        type: 'input',
-        name: 'name',
-        message: 'Enter the employee name:',
-        },
-
-        // Enter Employee ID
-        {
-        type: 'input',
-        name: 'id',
-        message: 'Enter employee ID:',
-        },
-
-        // Enter Employee Email
-        {
-        type: 'input',
-        name: 'email',
-        message: 'Enter employee email',
-        },
-
-         // Select type of employee to enter
-        {
-        type: 'list',
-        name: 'employeeType',
-        message: 'Select which type of employee you would like to enter',
-        choices: ["Manager", "Engineer", "Intern"]
+            type: 'confirm',
+            name: 'menu',
+            message:'Do you want to add another team member?',
+            default: 'true',    
         }
-    ]).then((userChoice) => {
-            if(userChoice.employeeType === "Manager"){
-                // Enter Employee Office Number
-                inquirer.prompt([
-                    {
-                    type: 'input',
-                    name: 'officeNumber',
-                    message: 'Enter managers office number',
-                    }
-                ])    
-            } else if(userChoice.employeeType === "Engineer"){
-                // Enter engineer
-                inquirer.prompt([
-                    {
-                    type: 'input',
-                    name: 'github',
-                    message: 'Enter engineers github',
-                    }
-                ])
-            } else {
-                // only option left is intern
-                inquirer.prompt([
-                    {
-                        type: 'input',
-                        name: 'school',
-                        message: 'Enter intern school',
-                    }
-                ])
-            }
+    ])
+    // if yes, go to addteam function
+    // if no, go to generate profile function
 
+// addteam function
+    // menu with option to add engineer or intern
+        // either go to addenginer or addintern
 
+//addintern function
+    // if add intern selected
+        // enter intern name, ID, email address, school
+        // create const = new Intern
+        // push to teamMembers
+        // return to menu
 
-        }) .then((answers)=> {
-    const htmlContent = generateHTML(answers);
-    fs.writeFile('index.html', htmlContent, (err) =>
-    err? console.log(err) : console.log('Team profile successfully created!'))
-// });
+// add engineer function
+    // if add engineer selected
+        // enter engineer name, id, email address, github
+        // create const = new Engineer 
+        // push to teamMembers
+        // return to menu
+        // finish building team
 
-// };
-
-// this isn't working
-const generateHTML = () =>
-// ({name, id, email, employeeType, officeNumber, github, school} ) 
-`
-    Name:
-    Employee ID: 
-
-
-`;
+// const buildteam function
+    // in this function there is the generateHTML
 
 // appMenu();
+
