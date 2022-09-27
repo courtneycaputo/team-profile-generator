@@ -6,23 +6,54 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 
 const path = require("path");
-
 const distDir = path.resolve(__dirname, 'dist')
 console.log(distDir)
 const distPath = path.join(distDir,"teamprofile.html")
 console.log(distPath)
 
-console.log("Welcome to team profile generator! Answer the following prompts to build your team profile.")
+console.log("********* Welcome to team profile generator! Answer the following prompts to build your team profile. *********")
 
 
 const teamMembers = []
 
-// function for team manager's information
-    // name, employee ID, email address, and office number
-    // create const = new Manager
-    // push to teamMembers
+const createManager = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'managerName',
+            message: 'Enter team managers name:',
+        },
 
-// create menu
+        {
+            type: 'input',
+            name: 'managerID',
+            message: 'Enter team managers employee ID:',
+        },
+
+        {
+            type: 'input',
+            name: 'managerEmail',
+            message: 'Enter team managers email:',
+        },
+
+        {
+            type: 'input',
+            name: 'managerOfficeNumber',
+            message: 'Enter team managers office number:',
+        }
+    ]).then((answers) => {
+    const manager = new Manager(
+        answers.managerName,
+        answers.managerID,
+        answers.managerEmail,
+        answers.managerOfficeNumber
+    )
+    teamMembers.push(manager);
+    menu()
+    });
+}
+
+// Manue to add intern, add engineer, or generate team profile
 const menu = () => {
     inquirer.prompt([
         {
@@ -123,7 +154,7 @@ const menu = () => {
 
     }
 
-menu ()
+createManager ()
 
     // if yes, go to addteam function
     // if no, go to generateTeam function
