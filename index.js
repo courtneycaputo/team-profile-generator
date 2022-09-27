@@ -6,12 +6,11 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 
 const path = require("path");
-const distDir = path.resolve(__dirname, 'dist')
-console.log(distDir)
+const distDir = path.resolve(__dirname, "dist")
 const distPath = path.join(distDir,"teamprofile.html")
-console.log(distPath)
+const generateHTML = require('./src/generateHTML.js')
 
-console.log("********* Welcome to team profile generator! Answer the following prompts to build your team profile. *********")
+console.log("\nWelcome to team profile generator!\nAnswer the following prompts to build your team profile.\n")
 
 
 const teamMembers = []
@@ -66,8 +65,7 @@ const menu = () => {
                 "Generate team profile"
             ]    
         }
-    ]).then((userChoice) => {
-        // console.log(userChoice);
+    ]).then((userChoice) => {      
         if(userChoice.menu === "Add intern to team") {
             inquirer.prompt ([
                 // Intern Name
@@ -93,7 +91,7 @@ const menu = () => {
                 {
                     type: 'input',
                     name: 'internSchool',
-                    message: 'Enter intern school',
+                    message: 'Enter intern school:',
                 }
 
             ]).then((answers) => {
@@ -140,46 +138,19 @@ const menu = () => {
                     answers.engineerEmail,
                     answers.engineerGithub
                 )
-                // console.log(answers);
                 teamMembers.push(engineer);
                 menu()
             })
         } else {
             generateTeam();
         }
+        
     })
 }
 
-    const generateTeam = () => {
-
-    }
+const generateTeam = () => {
+    console.log("Your team profile has been successfully generated!")
+    fs.writeFileSync(distPath, generateHTML(teamMembers), "utf-8")
+}
 
 createManager ()
-
-    // if yes, go to addteam function
-    // if no, go to generateTeam function
-
-// addteam function
-    // menu with option to add engineer or intern
-        // either go to addenginer or addintern
-
-//addintern function
-    // if add intern selected
-        // enter intern name, ID, email address, school
-        // create const = new Intern
-        // push to teamMembers
-        // return to menu
-
-// add engineer function
-    // if add engineer selected
-        // enter engineer name, id, email address, github
-        // create const = new Engineer 
-        // push to teamMembers
-        // return to menu
-        // finish building team
-
-// const buildteam function
-    // in this function there is the generateHTML
-
-// appMenu();
-
