@@ -5,6 +5,13 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require('fs');
 
+const path = require("path");
+
+const distDir = path.resolve(__dirname, 'dist')
+console.log(distDir)
+const distPath = path.join(distDir,"teamprofile.html")
+console.log(distPath)
+
 
 
 function appMenu(){
@@ -75,17 +82,18 @@ function appMenu(){
     const htmlContent = generateHTML(answers);
     fs.writeFile('index.html', htmlContent, (err) =>
     err? console.log(err) : console.log('Team profile successfully created!'))
-});
+// });
 
-};
+// };
 
 // this isn't working
-// const generateHTML = ({name, id, email, employeeType, officeNumber, github, school} ) =>
-// `
-//     Name: ${name}
-//     Employee ID: ${id}
+const generateHTML = () =>
+// ({name, id, email, employeeType, officeNumber, github, school} ) 
+`
+    Name:
+    Employee ID: 
 
 
-// `;
+`;
 
-appMenu();
+// appMenu();
