@@ -21,6 +21,10 @@ To install the necessary dependencies, run the following command:
 ## Usage Information: <a name="usage"></a>
 To use this application, clone the repository and run "node index.js" in the terminal where the root directy of the coned project is saved. Answer the prompts that appear in the terminal. Once all prompts are answered, a team profile html page will be generated.
 
+<img src="/images/terminal.png">
+
+<img src="/images/html.png">
+
 ## License: <a name="license"></a>
 This project is licensed under the MIT license.
 
