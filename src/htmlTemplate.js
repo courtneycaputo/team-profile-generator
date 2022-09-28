@@ -28,7 +28,7 @@ const generateTeam = (teamMembers) => {
                         <p class="card-text"><i class="bi bi-gear-fill"></i> Engineer</p>
                         <p class="card-text">ID: ${engineer.id}</p>
                         <p class="card-text">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                        <p class="card-text">Github: <a href="https://github.com/${engineer.github}/" target="blank"</a>${engineer.github}</p>
+                        <p class="card-text">Github: <a href="https://github.com/${engineer.github}/" target="blank">${engineer.github}</a></p>
                     </div>
                 </div>
 
