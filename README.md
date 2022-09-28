@@ -25,6 +25,8 @@ To use this application, clone the repository and run "node index.js" in the ter
 
 <img src="/images/html.png">
 
+<a href="https://watch.screencastify.com/v/EETrRgIqXfhPJtuo8RkN" target="blank">Demo Video</a>
+
 ## License: <a name="license"></a>
 This project is licensed under the MIT license.
 
