@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require("path");
 const distDir = path.resolve(__dirname, "dist")
 const distPath = path.join(distDir,"teamprofile.html")
-const generateHTML = require('./src/generateHTML.js')
+const htmlTemplate = require('./src/htmlTemplate.js')
 
 console.log("\nWelcome to team profile generator!\nAnswer the following prompts to build your team profile.\n")
 
@@ -150,7 +150,7 @@ const menu = () => {
 
 const generateTeam = () => {
     console.log("Your team profile has been successfully generated!")
-    fs.writeFileSync(distPath, generateHTML(teamMembers), "utf-8")
+    fs.writeFileSync(distPath, htmlTemplate(teamMembers), "utf-8")
 }
 
 createManager ()
