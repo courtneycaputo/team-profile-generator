@@ -1,6 +1,6 @@
-# ${title}
+# Team Profile Generator
     
-[![License](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/${license})
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
 - [Description](#description)
@@ -12,24 +12,26 @@
 - [Questions](#questions)
     
 ## Description: <a name="description"></a>
-${description}
+This project was to create an application that will generate a team profile page using node.js. A user can enter team members (manager, engineer, intern) and an html page will generate that displays the team members and team members information.
 
 ## Installation Instructions: <a name="installation"></a>
-${installation}
+To install the necessary dependencies, run the following command:
+`npm install`
 
 ## Usage Information: <a name="usage"></a>
-${usage}
+To use this application, clone the repository and run "node index.js" in the terminal where the root directy of the coned project is saved. Answer the prompts that appear in the terminal. Once all prompts are answered, a team profile html page will be generated.
 
 ## License: <a name="license"></a>
-This project is licensed under the ${license} license.
+This project is licensed under the MIT license.
 
 ## Contribution Guidelines: <a name="contributing"></a>
-${contributing}
+There are currently no contribution guidelines.
 
 ## Test Instructions: <a name="tests"></a>
-${tests}
+To run tests, run the following command:
+`npm test`
 
 ## Questions: <a name="questions"></a>
 If you have questions regarding this project, you can contact me directly at:
-* Github: <a href="https://github.com/${github}">${github}</a>
-* Email: <a href="mailto:${email}">${email}</a>
+* Github: <a href="https://github.com/courtneycaputo">courtneycaputo</a>
+* Email: <a href="courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
